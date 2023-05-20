@@ -8,7 +8,7 @@ Cowboy::Cowboy(string name, Point &&location) : booletsNum(6), Character(std::mo
 
 void Cowboy::shoot(Character *enemy) {
 
-    if (enemy == this) throw invalid_argument("Cannot shoot yourself!\n");
+    if (enemy == this) throw runtime_error("Cannot shoot yourself!\n");
     else if(!enemy->isAlive()) throw runtime_error("Enemy is already dead.\n");
     else if(!isAlive()) throw runtime_error("Cowboy is already dead. Cannot shoot anyone.\n");
     else if(hasboolets()) {
@@ -18,14 +18,13 @@ void Cowboy::shoot(Character *enemy) {
 }
 
 bool Cowboy::hasboolets() const {
-    return (booletsNum >= 0);
+    return (booletsNum > 0);
 }
 
 void Cowboy::reload() {
 
-    if (isAlive()) {
-        booletsNum = 6;
-    }
+    if (isAlive()) booletsNum = 6;
+    else throw runtime_error("Cowboy is already dead, cannot reload.");
 }
 
 string Cowboy::print() {

@@ -18,7 +18,8 @@ int Character::getHitPoints() const{
 }
 
 void Character::hit(int hitNum) {
-    if(hitpoints >= 0) hitpoints -= hitNum;
+    if(hitNum < 0) throw invalid_argument("Negative hit number is not allowed.");
+    else if(hitpoints > 0) hitpoints -= hitNum;
     else{
         throw runtime_error("Character is already dead.\n");
     }
@@ -29,7 +30,7 @@ double Character::distance(Character *other) {
 }
 
 bool Character::isAlive() const {
-    if(hitpoints >= 0) return true;
+    if(hitpoints > 0) return true;
     else{return false;}
 }
 

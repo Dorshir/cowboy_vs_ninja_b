@@ -2,6 +2,7 @@
 using namespace std;
 
 double Point::distance(Point point) const {
+
         double dx = x - point.x;
         double dy = y - point.y;
         return sqrt(dx * dx + dy * dy);
@@ -16,8 +17,9 @@ string Point::print() const {
 
 [[maybe_unused]] Point Point::moveTowards(Point &source, Point &dest, double dist) {
 
+    if(dist < 0) throw invalid_argument("Negative distance is not allowed!");
     double pointsDistance = source.distance(dest);
-    if(dist <= pointsDistance){
+    if(dist >= pointsDistance){
         return {dest.getX(), dest.getY()};
     }
     else {

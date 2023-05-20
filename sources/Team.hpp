@@ -7,6 +7,10 @@
 #include <list>
 #include <iostream>
 #include <sstream>
+#include <limits>
+#include <algorithm>
+#include <utility>
+
 #include "Point.hpp"
 #include "Cowboy.hpp"
 #include "Ninja.hpp"
@@ -23,6 +27,7 @@ private:
     std::vector<Character*> members;
 
     Character *leader;
+
 
 public:
 
@@ -52,6 +57,9 @@ public:
 
     Team& operator=(Team&& other) = default;
 
+    void setNextLeader();
+
+    Character *nextTarget(Team *enemyTeam);
 };
 
 
