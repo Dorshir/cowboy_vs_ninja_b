@@ -47,7 +47,7 @@ public:
 
     virtual void print();
 
-    ~Team();
+    virtual ~Team();
 
     Team(const Team& other) = default;
 

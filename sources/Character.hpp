@@ -41,6 +41,11 @@ public:
     virtual string print() = 0;
     virtual ~Character() = default;
 
+    Character(const Character& other) = default;
+    Character& operator=(const Character& other) = default;
+    Character(Character&& other) = default;
+    Character& operator=(Character&& other) = default;
+
 };
 
 #endif //COWBOY_VS_NINJA_A_CHARACTER_HPP
