@@ -15,6 +15,16 @@ public:
     void attack(Team *enemyTeam) override;
 
 
+    double calculateTeamStrength();
 
+    int countNinjas(Team* enemyTeam);
+
+    int countCowboys(Team* enemyTeam);
+
+    Character *findPriorityTarget(Team *enemyTeam, const string &targetType);
+
+    int countCowboys();
+
+    int countNinjas();
 };
 #endif //COWBOY_VS_NINJA_A_SMARTTEAM_HPP

@@ -16,7 +16,7 @@ private:
     int hitpoints;
     string name;
     bool teamFlag;
-
+    
 public:
 
     Character(string name, int hitpoints, Point& location);
